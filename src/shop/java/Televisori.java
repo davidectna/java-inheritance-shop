@@ -1,7 +1,5 @@
 package shop.java;
 
-import java.text.DecimalFormat;
-
 /*Creare la classe Prodotto che gestisce i prodotti dello shop. Un prodotto è caratterizzato da:
 - codice (numero intero)
 - nome
@@ -20,31 +18,17 @@ Usate opportunamente i livelli di accesso (public, private), i costruttori, i me
 Utilizzate l’ereditarietà per riutilizzare il codice di Prodotto nella stesura delle classi che gestiscono
  i vari sotto tipi di prodotto e testate le funzionalità delle vostre classi in una classe Main con metodo main.*/
 
-public class Prodotto {
-	//attributes 
-	private int productCode;
-	private String productName;
-	private String productBrand;
-	private int productPrice;
-	private double iva;
+public class Televisori extends Prodotto{
+	//attributes
+	private String televisionSize;
+	private boolean smartTv;
 
 	
-	//constructor
-	public Prodotto(int productCode, String productName, String productBrand, int productPrice, double iva) {
-		super();
-		this.productCode = productCode;
-		this.productName = productName;
-		this.productBrand = productBrand;
-		this.productPrice = productPrice;
-		this.iva = iva;
+	public Televisori(int productCode, String productName, String productBrand, int productPrice, int iva,String televisionSize, boolean smartTv) {
+		super(productCode, productName, productBrand, productPrice, iva);
+		this.televisionSize = televisionSize;
+		this.smartTv = smartTv;
 	}
 	
-	//methods
-	public DecimalFormat df = new DecimalFormat("0.00€");
-
-	 
-	@Override
-	public String toString() {
-		return productName + " Di " + productBrand + " Al prezzo incluso di iva di: " + productPrice + " euro. ";
-	}
+	
 }

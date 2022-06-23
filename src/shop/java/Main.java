@@ -1,6 +1,6 @@
 package shop.java;
 
-import java.text.DecimalFormat;
+import java.util.Random;
 
 /*Creare la classe Prodotto che gestisce i prodotti dello shop. Un prodotto è caratterizzato da:
 - codice (numero intero)
@@ -20,31 +20,17 @@ Usate opportunamente i livelli di accesso (public, private), i costruttori, i me
 Utilizzate l’ereditarietà per riutilizzare il codice di Prodotto nella stesura delle classi che gestiscono
  i vari sotto tipi di prodotto e testate le funzionalità delle vostre classi in una classe Main con metodo main.*/
 
-public class Prodotto {
-	//attributes 
-	private int productCode;
-	private String productName;
-	private String productBrand;
-	private int productPrice;
-	private double iva;
-
-	
-	//constructor
-	public Prodotto(int productCode, String productName, String productBrand, int productPrice, double iva) {
-		super();
-		this.productCode = productCode;
-		this.productName = productName;
-		this.productBrand = productBrand;
-		this.productPrice = productPrice;
-		this.iva = iva;
-	}
-	
-	//methods
-	public DecimalFormat df = new DecimalFormat("0.00€");
-
-	 
-	@Override
-	public String toString() {
-		return productName + " Di " + productBrand + " Al prezzo incluso di iva di: " + productPrice + " euro. ";
+public class Main {
+    public static void main(String[] args) {
+    	
+    	Random random = new Random();
+    	
+    	int productCode = random.nextInt((10000)+1);
+    	String  imeiFirstPart = "IMEI" + random.nextInt((40000)+20000);
+    	String imeiGeneraton = imeiFirstPart + random.nextInt((10000)+5000);
+    	
+    	Smartphone Iphone13 = new Smartphone(productCode,"Iphone 13","Apple",1300,22,imeiGeneraton,"128 GB");
+    	System.out.println(Iphone13);
+    	
 	}
 }

@@ -1,6 +1,6 @@
 package shop.java;
 
-import java.text.DecimalFormat;
+import java.util.Random;
 
 /*Creare la classe Prodotto che gestisce i prodotti dello shop. Un prodotto è caratterizzato da:
 - codice (numero intero)
@@ -20,31 +20,29 @@ Usate opportunamente i livelli di accesso (public, private), i costruttori, i me
 Utilizzate l’ereditarietà per riutilizzare il codice di Prodotto nella stesura delle classi che gestiscono
  i vari sotto tipi di prodotto e testate le funzionalità delle vostre classi in una classe Main con metodo main.*/
 
-public class Prodotto {
+public class Smartphone extends Prodotto{
 	//attributes 
-	private int productCode;
-	private String productName;
-	private String productBrand;
-	private int productPrice;
-	private double iva;
+	private String imeiCode;
+	private String amountMemory;
 
-	
-	//constructor
-	public Prodotto(int productCode, String productName, String productBrand, int productPrice, double iva) {
-		super();
-		this.productCode = productCode;
-		this.productName = productName;
-		this.productBrand = productBrand;
-		this.productPrice = productPrice;
-		this.iva = iva;
+	public Smartphone(int productCode, String productName, String productBrand, int productPrice, int iva,String imeiCode,String amountMemory) {
+		super(productCode, productName, productBrand, productPrice, iva);
+		this.imeiCode = imeiCode;
+		this.amountMemory = amountMemory;
+	}
+
+	public String getImeiCode() {
+		return imeiCode;
+	}
+
+	public void setImeiCode(String imeiCode) {
+		this.imeiCode = imeiCode;
 	}
 	
-	//methods
-	public DecimalFormat df = new DecimalFormat("0.00€");
+	  @Override
+	  public String toString() {
 
-	 
-	@Override
-	public String toString() {
-		return productName + " Di " + productBrand + " Al prezzo incluso di iva di: " + productPrice + " euro. ";
-	}
+	    return super.toString() + "codice IMEI : " + imeiCode + " / capacità di memoria : " + amountMemory;
+	  }
+
 }
